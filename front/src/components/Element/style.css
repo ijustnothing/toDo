@@ -1,0 +1,59 @@
+.elem {
+  border: 4px solid #383e56;
+  border-radius: 8px;
+  width: 70%;
+  display: flex;
+  font-size: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.elem span {
+  cursor: pointer;
+  width: 54%;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+.buttons button {
+  margin-left: 8px;
+  border: 0;
+  padding: 8px 0;
+  outline: none;
+  cursor: pointer;
+  color: #f69e7b;
+  border-radius: 8px;
+  max-width: 120px;
+  width: 100%;
+  background-color: #383e56;
+}
+.buttons button:hover {
+  background-color: #2d3246;
+}
+.formEdit input {
+  max-width: 290px;
+  font-size: 16px;
+  width: 100%;
+  padding: 4px 8px;
+  outline: none;
+  border-radius: 8px;
+  border: 0;
+}
+.inputAbsolute {
+  position: absolute;
+  top: 18px;
+  left: 12px;
+}
+.visible {
+  position: absolute;
+  top: 14px;
+  right: 83px;
+  width: 61.2px!important;
+}

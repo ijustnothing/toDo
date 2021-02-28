@@ -1,0 +1,23 @@
+.wrapperApp {
+  display: flex;
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0 10px;
+  background-color: #383e56;
+}
+
+.wrapperTodo{
+    max-width: 800px;
+    height: 600px;
+    width: 100%;
+    overflow: auto;
+    margin: 240px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 16px;
+    text-align: center;
+    background-color: #f69e7b;
+}
