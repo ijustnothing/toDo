@@ -2,6 +2,8 @@
 
 ### This application is on React
 
+![page-gif](/todo.gif)
+
 ## Getting Started
 
 ### 1) cd back
