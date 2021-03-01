@@ -4,6 +4,15 @@
 
 ## Getting Started
 
-#### /back npm start
+###  cd back
 
-#### /front yarn start
+##### npm i
+
+##### npm start
+
+
+### cd front 
+
+##### yarn
+
+##### yarn start
