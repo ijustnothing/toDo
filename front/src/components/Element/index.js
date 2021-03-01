@@ -1,39 +1,27 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {
+  thunkDeleteTodo,
+  thunkChangeTodo,
+  thunkEditTodo,
+} from '../../redux/thunkCreators';
 import './style.css';
-import { deletePostAC, completedAC, editdAC } from '../../redux/actionCreators';
 
 const Element = ({ el }) => {
-
   const dispatch = useDispatch();
-  
+
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState(el.post);
 
   const deleted = (event) => {
     event.preventDefault();
     const id = event.target.parentElement.parentElement.id;
-    fetch(`${process.env.REACT_APP_URL}/${id}`, {
-      method: 'DELETE',
-      headers: { 'Content-type': 'application/json' },
-    })
-      .then((responce) => responce.json())
-      .then((data) => {
-        dispatch(deletePostAC(data._id));
-      });
+    dispatch(thunkDeleteTodo(id));
   };
 
   const change = (event) => {
-    // event.preventDefault();
     const id = event.target.parentElement.id;
-    fetch(`${process.env.REACT_APP_URL}/${id}`, {
-      method: 'GET',
-      headers: { 'Content-type': 'application/json' },
-    })
-      .then((responce) => responce.json())
-      .then((data) => {
-        dispatch(completedAC(data._id));
-      });
+    dispatch(thunkChangeTodo(id));
   };
   const handlerEdit = (event) => {
     event.preventDefault();
@@ -42,15 +30,7 @@ const Element = ({ el }) => {
     const {
       edit: { value: edit },
     } = event.target;
-    fetch(`${process.env.REACT_APP_URL}/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        edit,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => dispatch(editdAC({ data, edit })));
+    dispatch(thunkEditTodo(id, edit));
   };
   const handlerVisible = (event) => {
     event.preventDefault();

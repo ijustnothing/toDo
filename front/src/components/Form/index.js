@@ -1,6 +1,6 @@
 import React from 'react';
-import { addPostAC } from '../../redux/actionCreators';
 import { useDispatch } from 'react-redux';
+import { thunkAddTodo } from '../../redux/thunkCreators';
 import './style.css';
 
 function Form(props) {
@@ -8,18 +8,13 @@ function Form(props) {
 
   const handlerAdded = (event) => {
     event.preventDefault();
+
     const {
       post: { value: post },
     } = event.target;
-    fetch(process.env.REACT_APP_URL, {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        post,
-      }),
-    })
-      .then((responce) => responce.json())
-      .then((data) => dispatch(addPostAC(data)));
+
+    dispatch(thunkAddTodo(post)); 
+
     event.target.post.value = '';
   };
 

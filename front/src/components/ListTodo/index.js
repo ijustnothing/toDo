@@ -1,21 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPostAC } from '../../redux/actionCreators';
 import Element from '../Element';
+import { thunkInitDevs } from '../../redux/thunkCreators';
 import './style.css';
 
 function List(props) {
-  
   const store = useSelector((store) => store);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_URL, {
-      method: 'GET',
-      headers: { 'Content-type': 'application/json' },
-    })
-      .then((responce) => responce.json())
-      .then((data) => dispatch(loadPostAC(data)));
+    dispatch(thunkInitDevs());
   }, [dispatch]);
 
   return (
